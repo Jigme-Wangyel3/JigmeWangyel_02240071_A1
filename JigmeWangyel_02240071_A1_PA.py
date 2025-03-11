@@ -7,12 +7,29 @@ x = int(input("Please enter a number from (1)-(6) as according to the function y
 print(x)
 #Prime number sum Calculator
 if x == 1:
-    p1 = int(input("Please enter what range you want to start from!(Doesn't have to be a Prime Number!): "))
-    p2 = int(input("Please enter till where you want to end the prime number at! (It doesn't have to be a prime number!): "))
-    if p1 and p2 < 2:
-        print ("The Prime Number has to be Greater than 2!")
-        print("The sum of the prime numbers you took in range is : " )
-    print("The sum of the Prime numbers within your given range is!: ")
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def sum_primes_in_range(start, end):
+        if start < 2:
+            raise ValueError("Starting number must be at least 2.")
+        
+        prime_sum = sum(n for n in range(start, end + 1) if is_prime(n))
+        return prime_sum
+
+try:
+    start = int(input("Enter the starting number of the range: "))
+    end = int(input("Enter the ending number of the range: "))
+    result = sum_primes_in_range(start, end)
+    print(f"The sum of prime numbers between {start} and {end} is {result}.")
+except ValueError as e:
+    print(f"Error: {e}")
+  
 #Length unit converter
 if x == 2:
     print("Please select a unit to convert as follows")
@@ -29,4 +46,14 @@ if x == 2:
         print("The length "+ str(d) + " Feet" + " in meter is!: " + str(f_m) + " Meters!")
     else:
         print("Type 'M' or 'F'! to convert to respective units! ")
-    #4231ewqe
+#Consonent counter
+if x== 3:
+    def Consonents(Text):
+        Vow=("AaEeIiOoUu")
+        count = 0
+        
+#Min-Max Number Finder
+
+
+   
+    
