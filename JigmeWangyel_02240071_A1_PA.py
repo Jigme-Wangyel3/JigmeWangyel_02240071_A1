@@ -22,13 +22,13 @@ if x == 1:
         prime_sum = sum(n for n in range(start, end + 1) if is_prime(n))
         return prime_sum
 
-try:
-    start = int(input("Enter the starting number of the range: "))
-    end = int(input("Enter the ending number of the range: "))
-    result = sum_primes_in_range(start, end)
-    print(f"The sum of prime numbers between {start} and {end} is {result}.")
-except ValueError as e:
-    print(f"Error: {e}")
+    try:
+        start = int(input("Enter the starting number of the range: "))
+        end = int(input("Enter the ending number of the range: "))
+        result = sum_primes_in_range(start, end)
+        print(f"The sum of prime numbers between {start} and {end} is {result}.")
+    except ValueError as e:
+        print(f"Error: {e}")
   
 #Length unit converter
 if x == 2:
@@ -53,6 +53,24 @@ if x== 3:
         count = 0
         
 #Min-Max Number Finder
+if x == 4:
+    try:
+        count = int(input("Enter how many numbers you want to input: "))
+        if count <= 0:
+            raise ValueError("The count must be a positive integer.")
+        
+        numbers = []
+        for i in range(count):
+            num = float(input(f"Enter number {i+1}: "))
+            numbers.append(num)
+        
+        min_num = min(numbers)
+        max_num = max(numbers)
+        
+        print(f"Minimum number: {min_num}")
+        print(f"Maximum number: {max_num}")
+    except ValueError as e:
+        print(f"Error: {e}")
 
 
    
