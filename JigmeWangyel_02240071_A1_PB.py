@@ -10,29 +10,29 @@ if X==1:
         number_to_guess = random.randint(1, 100)
         attempts = 0
 
-        print("Welcome to 'Guess the Number'!")
-        print("I'm thinking of a number between 1 and 100.")
+        print("Hello! You chose guess the Number Game")
+        print("The Number Lies Between 1 and 100!")
         
         while True:
             try:
-                user_guess = int(input("Enter your guess: "))
+                user_guess = int(input("Enter your guess here!: "))
                 attempts += 1
 
                 # Checking if the guess is correct
                 if user_guess < number_to_guess:
-                    print("Too low! Try again.")
+                    print("Your value is too Low! Put Your Value Again! ")
                 elif user_guess > number_to_guess:
-                    print("Too high! Try again.")
+                    print("Your value is too high! Put Your Value Again! ")
                 else:
                     print(f"Congratulations! You've guessed the number in {attempts} attempts.")
                     break
             except ValueError:
-                print("Please enter a valid number.")
+                print("Please enter a valid number between 1-100!")
 
     # Start the game
     guess_the_number()
-if X==2:
-#Rock paper Scisoor Game
+elif X==2:
+    print("You Chose Rock, Paper and Scissors Game! ")
     import random
 
     def get_computer_choice():
@@ -64,3 +64,8 @@ if X==2:
 
     if __name__ == "__main__":
         main()
+elif X == 3:
+    print("Thanks for playing! Goodbye!")
+
+else:
+    print("Please enter 1, 2, or 3 for the Game Or To Exit!")
