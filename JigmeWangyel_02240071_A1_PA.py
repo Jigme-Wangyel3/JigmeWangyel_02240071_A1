@@ -51,7 +51,7 @@ while True:
             f_m = d * 0.3048
             print(f"The length {d} feet in meters is: {f_m} meters!")
         else:
-            print("Invalid input! Type 'M' or 'F' to convert to respective units.")
+            print("Please Type 'M' or 'F' to convert your Meters to Feet or Feets To Meter.")
 
     # Consonant Counter
     elif x == 3:
@@ -113,10 +113,10 @@ while True:
                 print("We Couldn't Find Your File!")
                 return{}
 
-            target_words = ["and", "the", "was"]
+            words_needed_to_find = ["and", "the", "was"]
             words = content.lower().split()
 
-            word_counts = {word: words.count(word) for word in target_words}
+            word_counts = {word: words.count(word) for word in words_needed_to_find}
             
             return word_counts
 
@@ -127,9 +127,9 @@ while True:
         if counts: 
             for word, count in counts.items():
                 print(f"'{word}' appears {count} times.")
-    leave = input("Do you want to continue playing?(Y if yes and N if Not): ").strip().upper()
-    if leave != "Y":
-        print("Goodbye!")
+    exit_code = input("Do you want to use this Again?(Y if yes and N if Not): ").strip().upper()
+    if exit_code != "Yes":
+        print("See you Next Time!")
         break  
 
     
