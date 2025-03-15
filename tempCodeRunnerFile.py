@@ -72,5 +72,5 @@ while True:
         print("Please enter 1, 2, or 3 for the Game Or To Exit!")
     leave = input("Do you want to continue? (press 'Y' to play agin or press 'N' To leave the Game!): ").strip().upper()
     if leave != "Y":
-        print("See you again!")
+        print("Goodbye!")
         break 
