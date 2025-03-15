@@ -1,14 +1,14 @@
 while True:
     Options = ["1.Guess the Number Game!","2.Rock paper Scissor game","3.Exit The Game!"]
-    for i in Options:
-        print(i)
+    for items in Options:
+        print(items)
     X = int(input("Choose The game you want according the number or you can Exit the Game!: "))
     #Guess number Game
     if X==1:
         import random
 
-        def guess_the_number():
-            number_to_guess = random.randint(1, 100)
+        def number_guesser():
+            number_for_guessing = random.randint(1, 100)
             attempts = 0
 
             print("Hello! You chose guess the Number Game")
@@ -20,26 +20,26 @@ while True:
                     attempts += 1
 
                     # Checking if the guess is correct
-                    if user_guess < number_to_guess:
-                        print("Your value is too Low! Put Your Value Again! ")
-                    elif user_guess > number_to_guess:
-                        print("Your value is too high! Put Your Value Again! ")
+                    if user_guess < number_for_guessing:
+                        print("The value You have input is too Low! Try putting in your value Again! ")
+                    elif user_guess > number_for_guessing:
+                        print("The value You have input is too High! Try putting in your value Again! ")
                     else:
-                        print(f"Congratulations! You've guessed the number in {attempts} attempts.")
+                        print(f"Congratulations! You've guessed the correct number in {attempts} attempts.")
                         break
                 except ValueError:
                     print("Please enter a valid number between 1-100!")
 
         # Start the game
-        guess_the_number()
+        number_guesser()
     elif X==2:
         print("You Chose Rock, Paper and Scissors Game! ")
         import random
 
-        def get_computer_choice():
+        def random_choice():
             return random.choice(['rock', 'paper', 'scissors'])
 
-        def get_winner(player, computer):
+        def winning_moment(player, computer):
             if player == computer:
                 return "It's a tie!"
             elif (player == 'rock' and computer == 'scissors') or \
@@ -51,17 +51,17 @@ while True:
 
         def main():
             while True:
-                player_choice = input("Enter rock, paper, or scissors (or 'quit' to exit): ").lower()
-                if player_choice == 'quit':
+                choice_of_player = input("Enter rock, paper, or scissors (or 'quit' to exit): ").lower()
+                if choice_of_player == 'quit':
                     print("Thanks for playing!")
                     break
-                if player_choice not in ['rock', 'paper', 'scissors']:
+                if choice_of_player not in ['rock', 'paper', 'scissors']:
                     print("Invalid choice, try again.")
                     continue
                 
-                computer_choice = get_computer_choice()
-                print(f"Computer chose: {computer_choice}")
-                print(get_winner(player_choice, computer_choice))
+                choice_of_computer = random_choice()
+                print(f"Computer chose: {choice_of_computer}")
+                print(winning_moment(choice_of_player, choice_of_computer))
 
         if __name__ == "__main__":
             main()
