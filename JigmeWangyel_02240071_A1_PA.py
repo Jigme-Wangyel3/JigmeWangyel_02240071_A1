@@ -1,5 +1,4 @@
 while True:
-    # Intro
     functions = ["(1).Prime Number Sum Calculator", "(2).Length Unit Converter", "(3).Consonant Counter", "(4).Min-max Number Finder", "(5).Palindrome Checker", "(6).Word Counter"]
     
     for item in functions:
@@ -8,16 +7,16 @@ while True:
     try:
         x = int(input("Please enter a number from (1)-(6) as according to the function you want!: "))
         if x < 1 or x > 6:
-            print("Invalid input! Please enter a number between 1 and 6.")
+            print("Please enter a number from (1)-(6)!")
             continue
     except ValueError:
-        print("You have input a wrong value! Please enter a valid number.")
+        print("The number you have put is unavailable! ")
         continue
 
     # Prime Number Sum Calculator
     if x == 1:
         print("You chose Prime Number Sum Calculator!")
-        def is_prime(n):
+        def prime(n):
             if n < 2:
                 return False
             for i in range(2, int(n**0.5) + 1):
@@ -25,17 +24,17 @@ while True:
                     return False
             return True
 
-        def sum_primes_in_range(start, end):
+        def sumofprimes(start, end):
             if start < 2:
                 raise ValueError("Starting number must be at least 2.")
-            prime_sum = sum(n for n in range(start, end + 1) if is_prime(n))
+            prime_sum = sum(n for n in range(start, end + 1) if prime(n))
             return prime_sum
 
         try:
             start = int(input("Enter the starting number of the range: "))
             end = int(input("Enter the ending number of the range: "))
-            result = sum_primes_in_range(start, end)
-            print(f"The sum of prime numbers between {start} and {end} is {result}.")
+            result = sumofprimes(start, end)
+            print(f"The sum of the prime numbers you put between {start} and {end} is {result}!")
         except ValueError as e:
             print(f"Error: {e}")
 
@@ -57,7 +56,7 @@ while True:
     # Consonant Counter
     elif x == 3:
         print("You chose Consonant Counter")
-        def count_consonants(text):
+        def consonantscounts(text):
             vowels = "AaEeIiOoUu"
             count = 0
             for char in text:
@@ -66,7 +65,7 @@ while True:
             return count
 
         text = input("Enter a text: ")
-        consonant_count = count_consonants(text)
+        consonant_count = consonantscounts(text)
         print(f"The number of consonants in the text is: {consonant_count}")
 
     # Min-Max Number Finder
@@ -93,12 +92,12 @@ while True:
     # Palindrome Checker
     elif x == 5:
         print("You chose Palindrome Checker!")
-        def is_palindrome(s):
+        def this_is_Palindrome(s):
             cleaned = ''.join(c.lower() for c in s if c.isalnum())
             return cleaned == cleaned[::-1]
 
-        user_input = input("Enter a text: ")
-        if is_palindrome(user_input):
+        inputofuser = input("Please Enter a text!: ")
+        if this_is_Palindrome(inputofuser):
             print("True")
         else:
             print("False")
@@ -106,32 +105,31 @@ while True:
     # Word Counter
     elif x == 6:
         print("You chose Word Counter!")
-        def count_words(text):
-            # Words to count
+        def words_to_count(filename):
+            try:
+                with open(filename,'r') as file:
+                    content = file.read()
+            except FileNotFoundError:
+                print("We Couldn't Find Your File!")
+                return{}
+
             target_words = ["and", "the", "was"]
-            
-            # Convert text to lowercase and split into words
-            words = text.lower().split()
-            
-            # Count occurrences of each target word
+            words = content.lower().split()
+
             word_counts = {word: words.count(word) for word in target_words}
             
             return word_counts
 
-        # Sample text input
-        sample_text = input("Enter your text: ")
+        filename = input("Please Enter the File Name!: ").strip()
 
-        # Get the word count
-        counts = count_words(sample_text)
+        counts = words_to_count(filename)
 
-        # Display results
-        for word, count in counts.items():
-            print(f"'{word}' appears {count} times.")
-
-    # Ask if the user wants to continue
-    leave = input("Do you want to continue? (Y/N): ").strip().upper()
+        if counts: 
+            for word, count in counts.items():
+                print(f"'{word}' appears {count} times.")
+    leave = input("Do you want to continue playing?(Y if yes and N if Not): ").strip().upper()
     if leave != "Y":
         print("Goodbye!")
-        break  # This ensures the loop properly exits
+        break  
 
     
